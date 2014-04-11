@@ -1,11 +1,20 @@
-$def with (greeting)
+$def with (greeting, count)
 
 $if greeting:
-	<font face="Veranda">I just wanted to say <em style= "color: green; font-size: 14pt;"> $greeting</em></font>
-	<br/>
-	<font style="color:blue">How are you doing?</font>
-	<a href = "/start">Click here to Continue!</a>
+    <font face="Veranda">I just wanted to say <em style= "color: green; font-size: 1em;"> $greeting</em>.</font>
+    <br/>
+	This is your 
+	$if (count % 10) == 1 and (count // 10 != 1):
+	    $(count)st
+	$elif (count % 10) == 2 and (count // 10 != 1):
+	    $(count)nd
+	$elif (count % 10) == 3 and (count // 10 != 1):
+	    $(count)rd
+	$else:
+	    $(count)th
+	time here
+		<br/>
+	<a href = "/hello">Click here to return</a> <br/>
+    <a href = "/start">Click here to Continue!</a> <br/>
 $else:
     <em>Hello</em>, world!
-	
-
